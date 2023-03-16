@@ -6,7 +6,7 @@ define view entity ZWWIBE121G4_I_CustomerVH
       @ObjectModel.text.element: ['Name']
 
       @EndUserText: { label: 'Kundennummer', quickInfo: 'Kundennummer' }
-      key customer_id as CustomerId,
+  key customer_id       as CustomerId,
       @EndUserText: { label: 'Name', quickInfo: 'Name' }
       name              as Name,
       @EndUserText: { label: 'Beitrittsdatum', quickInfo: 'Beitrittsdatum' }

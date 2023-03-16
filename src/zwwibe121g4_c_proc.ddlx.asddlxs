@@ -6,8 +6,7 @@
   title.value: 'TransactionKey',
   description.value: 'ReturnDate'
 }
-annotate view ZWWIBE121G4_C_PROC
-    with 
+annotate view ZWWIBE121G4_C_PROC with
 {
 
   /* Facets */
@@ -16,45 +15,44 @@ annotate view ZWWIBE121G4_C_PROC
     { position: 10, type: #IDENTIFICATION_REFERENCE, label: 'Verleihvorgang Details' },
     { position: 20, type: #LINEITEM_REFERENCE, label: 'Rating ', targetElement: '_Rating' }
   ]
-  
-  
 
-    @UI.lineItem: [{ position: 10, criticality: 'ReturnDateCriticality' }]
-    @UI.selectionField: [{ position: 10 }]
-    @UI.identification: [{ position: 10 }]
-    TransactionKey;
-    
-    @UI.lineItem: [{ position: 20 }]
-    @UI.selectionField: [{ position: 20 }]
-    @UI.identification: [{ position: 20 }]
-    CustomerId;
-    
-    @UI.lineItem: [{ position: 20, type: #FOR_ACTION, dataAction: 'RETURN_VIDEO', label: 'Return Video' }]
-    @UI.hidden: true
-    VideoId;
-    
-    @UI.lineItem: [{ position: 30 }]
-    @UI.selectionField: [{ position: 30 }]
-    @UI.identification: [{ position: 30 }]
-    VideoKey;
-    
-    @UI.lineItem: [{ position: 40 }]
-    @UI.identification: [{ position: 40 }]
-    LoanDate;
-    
-    @UI.lineItem: [{ position: 50 }]
-    @UI.identification: [{ position: 50 }]
-    ReturnDate;
-    
-    @UI.hidden: true
-    ReturnDateCriticality;
-    
-    @UI.lineItem: [{ position: 60 }]
-    @UI.identification: [{ position: 60 }]
-    LendingFee;
-    
-    @UI.hidden: true
-    CurrencyCode;
-    
-    
+  /* Fields */
+  @UI.lineItem: [{ position: 10, criticality: 'ReturnDateCriticality' }]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  TransactionKey;
+
+  @UI.lineItem: [{ position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  CustomerId;
+
+  @UI.lineItem: [{ position: 20, type: #FOR_ACTION, dataAction: 'RETURN_VIDEO', label: 'Return Video' }]
+  @UI.hidden: true
+  VideoId;
+
+  @UI.lineItem: [{ position: 30 }]
+  @UI.selectionField: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  VideoKey;
+
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  LoanDate;
+
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  ReturnDate;
+
+  @UI.hidden: true
+  ReturnDateCriticality;
+
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+  LendingFee;
+
+  @UI.hidden: true
+  CurrencyCode;
+
+
 }

@@ -22,7 +22,6 @@ define behavior for ZWWIBE121G4_C_VID //alias <alias_name>
 define behavior for ZWWIBE121G4_C_PROC //alias <alias_name>
 {
   use update;
-  use delete;
 
   use action return_video;
 
@@ -33,9 +32,9 @@ define behavior for ZWWIBE121G4_C_PROC //alias <alias_name>
 
 define behavior for ZWWIBE121G4_C_RAT
 {
-    use update;
-    use delete;
+  use update;
+  use delete;
 
-    use association _Medium;
-    use association _RentalProcess;
+  use association _Medium;
+  use association _RentalProcess;
 }

@@ -12,12 +12,11 @@ authorization master ( instance )
   delete;
   association _Videos { create; }
   field ( readonly, numbering : managed ) MediumId;
-  field ( mandatory : create) Medium, Costs;
+  field ( mandatory : create ) Medium, Costs;
   field ( readonly : update ) Medium;
 
   /* Actions, Validations and Determinations */
   validation validateMedium on save { create; }
-
   mapping for zwwibe121g4_medm corresponding
     {
       MediumId     = medium_id;
@@ -25,6 +24,7 @@ authorization master ( instance )
       CurrencyCode = currency_code;
       Medium       = medium;
     }
+
 
 }
 
@@ -47,7 +47,6 @@ authorization dependent by _Medium
   /* Actions, Validations and Determinations */
   determination determineVideo on save { create; }
   validation validateGenre on save { create; }
-
   mapping for zwwibe121g4_vid corresponding
     {
       VideoId        = video_id;
@@ -57,8 +56,9 @@ authorization dependent by _Medium
       PublishingYear = publishing_year;
       MediumId       = medium_id;
       Status         = status;
-      ImageUrl = image_url;
+      ImageUrl       = image_url;
     }
+
 
 }
 
@@ -72,13 +72,14 @@ authorization dependent by _Medium
   delete;
   field ( readonly, numbering : managed ) TransactionId;
   field ( readonly ) VideoId, MediumId, TransactionKey, LendingFee, ReturnDate, LoanDate;
-  field ( mandatory : create) CustomerId;
-  field ( readonly : update) CustomerId;
+  field ( mandatory : create ) CustomerId;
+  field ( readonly : update ) CustomerId;
 
   association _Medium;
   association _Video;
   association _Rating { create; }
 
+  /* Actions, Validations and Determinations */
   action return_video;
   determination determineLending on save { create; }
   determination determineTransactionKey on save { create; }
@@ -94,8 +95,9 @@ authorization dependent by _Medium
       ReturnDate     = return_date;
       LendingFee     = lending_fee;
       CurrencyCode   = currency_code;
-      CustomerId = customer_id;
+      CustomerId     = customer_id;
     }
+
 
 }
 
@@ -104,20 +106,21 @@ persistent table zwwibe121g4_rat
 lock dependent by _Medium
 authorization dependent by _Medium
 {
-	update;
-	delete;
-	field ( readonly ) TransactionId, MediumId;
-	field ( mandatory : create ) Rating;
-	
-	association _RentalProcess;
-	association _Medium;
-	
-	validation validateRating on save { create; update; }
-	
-	mapping for zwwibe121g4_rat corresponding
-	   {
-	       TransactionId = transaction_id;
-	       Rating = rating;
-	       MediumId = medium_id;
-	   }
+  update;
+  delete;
+  field ( readonly ) TransactionId, MediumId;
+  field ( mandatory : create ) Rating;
+
+  association _RentalProcess;
+  association _Medium;
+
+  /* Actions, Validations and Determinations */
+  validation validateRating on save { create; update; }
+  mapping for zwwibe121g4_rat corresponding
+    {
+      TransactionId = transaction_id;
+      Rating        = rating;
+      MediumId      = medium_id;
+    }
+
 }
