@@ -1,0 +1,76 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:
+{
+  typeNamePlural: 'Videos',
+  typeName: 'Video',
+  title.value: 'Title',
+  description.value: 'VideoKey',
+  imageUrl: 'ImageUrl'
+}
+annotate view ZWWIBE121G4_C_VID
+    with 
+{
+  /* Facets */
+  @UI.facet:
+  [
+    { position: 10, type: #IDENTIFICATION_REFERENCE, label: 'Video Details' },
+    { position: 20, type: #LINEITEM_REFERENCE, label: 'Verleihvorgänge ', targetElement: '_RentalProcesses' }
+  ]
+  
+    
+    /* Fields */
+    @UI.hidden: true
+    VideoId;
+       
+    @UI.lineItem: [{ position: 10 }]
+    @UI.selectionField: [{ position: 10 }]
+    @UI.identification: [{ position: 10 }]
+    VideoKey;
+    
+    @UI.lineItem: [{ position: 20 }]
+    @UI.selectionField: [{ position: 20 }]
+    @UI.identification: [{ position: 20 }]
+    Title;
+    
+    @UI.lineItem: [{ position: 30 }]
+    @UI.selectionField: [{ position: 30 }]
+    @UI.identification: [{ position: 30 }]
+    Genre;
+    
+    @UI.lineItem: [{ position: 40 }]
+    @UI.selectionField: [{ position: 40 }]
+    @UI.identification: [{ position: 40 }]
+    PublishingYear;
+
+    @UI.lineItem: [{ position: 50, criticality: 'AvgRatingCriticality', criticalityRepresentation: #WITHOUT_ICON  }]
+    @UI.selectionField: [{ position: 50 }]
+    @UI.identification: [{ position: 50 }]
+    AvgRating;
+    
+    @UI.lineItem: [{ position: 60, criticality: 'StatusCriticality', criticalityRepresentation: #WITHOUT_ICON }]
+    @UI.selectionField: [{ position: 60 }]
+    @UI.identification: [{ position: 60, criticality: 'StatusCriticality', criticalityRepresentation: #WITHOUT_ICON }]
+    Status;
+    
+    @UI.lineItem: [{ position: 70 }]
+    @UI.selectionField: [{ position: 70 }]
+    @UI.identification: [{ position: 70 }]
+    Medium;
+    
+    @UI.lineItem: [{ position: 80 }]
+    @UI.identification: [{ position: 80 }]
+    Costs;  
+    
+    @UI.hidden: true
+    MediumId; 
+    
+    @UI.hidden: true
+    StatusCriticality;
+    
+    @UI.hidden: true
+    AvgRatingCriticality;
+    
+    @UI.identification: [{ position: 90 }]
+    ImageUrl;
+    
+}

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZWWIBE121G4_MEDIUM</DOMNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000040</LENG>
+    <OUTPUTLEN>000040</OUTPUTLEN>
+    <LOWERCASE>X</LOWERCASE>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>Character 40 for Medium</DDTEXT>
+    <DOMMASTER>E</DOMMASTER>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>ZWWIBE121G4_MEDIUM</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DVD</DOMVALUE_L>
+     <DDTEXT>DVD</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZWWIBE121G4_MEDIUM</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>BLU-RAY</DOMVALUE_L>
+     <DDTEXT>Blu-Ray</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZWWIBE121G4_MEDIUM</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>BLU-RAY_4K</DOMVALUE_L>
+     <DDTEXT>Blu-Ray_4K</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,123 @@
+managed implementation in class zbp_wwibe121g4_i_medm unique;
+strict ( 1 );
+
+define behavior for ZWWIBE121G4_I_MEDM alias Medium
+persistent table zwwibe121g4_medm
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association _Videos { create; }
+  field ( readonly, numbering : managed ) MediumId;
+  field ( mandatory : create) Medium, Costs;
+  field ( readonly : update ) Medium;
+
+  /* Actions, Validations and Determinations */
+  validation validateMedium on save { create; }
+
+  mapping for zwwibe121g4_medm corresponding
+    {
+      MediumId     = medium_id;
+      Costs        = costs;
+      CurrencyCode = currency_code;
+      Medium       = medium;
+    }
+
+}
+
+define behavior for ZWWIBE121G4_I_VID alias video
+persistent table zwwibe121g4_vid
+lock dependent by _Medium
+authorization dependent by _Medium
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) MediumId, AvgRating, Status, VideoKey;
+  field ( readonly, numbering : managed ) VideoId;
+  field ( mandatory : create ) Title, Genre;
+  field ( readonly : update ) Title, Genre;
+
+  association _Medium;
+  association _RentalProcesses { create; }
+
+  /* Actions, Validations and Determinations */
+  determination determineVideo on save { create; }
+  validation validateGenre on save { create; }
+
+  mapping for zwwibe121g4_vid corresponding
+    {
+      VideoId        = video_id;
+      VideoKey       = video_key;
+      Title          = title;
+      Genre          = genre;
+      PublishingYear = publishing_year;
+      MediumId       = medium_id;
+      Status         = status;
+      ImageUrl = image_url;
+    }
+
+}
+
+define behavior for ZWWIBE121G4_I_PROC alias rental
+persistent table zwwibe121g4_proc
+lock dependent by _Medium
+authorization dependent by _Medium
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly, numbering : managed ) TransactionId;
+  field ( readonly ) VideoId, MediumId, TransactionKey, LendingFee, ReturnDate, LoanDate;
+  field ( mandatory : create) CustomerId;
+  field ( readonly : update) CustomerId;
+
+  association _Medium;
+  association _Video;
+  association _Rating { create; }
+
+  action return_video;
+  determination determineLending on save { create; }
+  determination determineTransactionKey on save { create; }
+  determination determineDate on save { create; }
+  validation validateCustomer on save { create; }
+  mapping for zwwibe121g4_proc corresponding
+    {
+      TransactionId  = transaction_id;
+      TransactionKey = transaction_key;
+      VideoId        = video_id;
+      MediumId       = medium_id;
+      LoanDate       = loan_date;
+      ReturnDate     = return_date;
+      LendingFee     = lending_fee;
+      CurrencyCode   = currency_code;
+      CustomerId = customer_id;
+    }
+
+}
+
+define behavior for ZWWIBE121G4_I_RAT alias rating
+persistent table zwwibe121g4_rat
+lock dependent by _Medium
+authorization dependent by _Medium
+{
+	update;
+	delete;
+	field ( readonly ) TransactionId, MediumId;
+	field ( mandatory : create ) Rating;
+	
+	association _RentalProcess;
+	association _Medium;
+	
+	validation validateRating on save { create; update; }
+	
+	mapping for zwwibe121g4_rat corresponding
+	   {
+	       TransactionId = transaction_id;
+	       Rating = rating;
+	       MediumId = medium_id;
+	   }
+}

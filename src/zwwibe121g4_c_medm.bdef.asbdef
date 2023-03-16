@@ -1,0 +1,41 @@
+projection;
+strict ( 1 );
+
+define behavior for ZWWIBE121G4_C_MEDM //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Videos { create; }
+}
+
+define behavior for ZWWIBE121G4_C_VID //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _Medium;
+  use association _RentalProcesses { create; }
+}
+
+define behavior for ZWWIBE121G4_C_PROC //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use action return_video;
+
+  use association _Medium;
+  use association _Video;
+  use association _Rating { create; }
+}
+
+define behavior for ZWWIBE121G4_C_RAT
+{
+    use update;
+    use delete;
+
+    use association _Medium;
+    use association _RentalProcess;
+}

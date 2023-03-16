@@ -1,0 +1,7 @@
+@EndUserText.label: 'Video'
+define service ZWWIBE121G4_UI_VIDEO {
+  expose ZWWIBE121G4_C_VID;
+  expose ZWWIBE121G4_C_MEDM;
+  expose ZWWIBE121G4_C_PROC;
+  expose ZWWIBE121G4_C_RAT;
+}

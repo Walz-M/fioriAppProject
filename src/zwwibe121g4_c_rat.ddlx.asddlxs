@@ -1,0 +1,34 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:
+{
+  typeNamePlural: 'Rating',
+  typeName: 'Rating'
+}
+annotate view ZWWIBE121G4_C_RAT
+    with 
+{
+     /* Facets */
+  @UI.facet:
+  [
+    { position: 10, type: #IDENTIFICATION_REFERENCE, label: 'Rating Details' }
+  ]
+    
+    @UI.lineItem: [{ position: 10 }]
+    @UI.hidden: true
+    TransactionKey;
+    
+    @UI.lineItem: [{ position: 20 }]
+    @UI.identification: [{ position: 20 }]
+    CustomerName;
+    
+    @UI.lineItem: [{ position: 30 }]
+    @UI.identification: [{ position: 30 }]
+    VideoTitle;
+    
+    @UI.lineItem: [{ position: 40, criticality: 'RatingCriticality', criticalityRepresentation: #WITHOUT_ICON  }]
+    @UI.identification: [{ position: 40 }]
+    Rating;
+    
+    @UI.hidden: true
+    RatingCriticality;
+}
